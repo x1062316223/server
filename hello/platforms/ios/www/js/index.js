@@ -1,206 +1,135 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-const ul = document.getElementById("myUL");
-const checkedul = document.getElementById("myCheckedUL");
 
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-let checkedArray = localStorage.getItem('checked') ? JSON.parse(localStorage.getItem('checked')) : [];
+const form = document.querySelector(".js-form");
+const addButton = document.getElementById("submit");
+const list = document.querySelector('.js-todo-list');
 
-localStorage.setItem('items', JSON.stringify(itemsArray));
-localStorage.setItem('checked', JSON.stringify(checkedArray));
-
-
+let todoItems = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+localStorage.setItem('items', JSON.stringify(todoItems))
 const data = JSON.parse(localStorage.getItem('items'));
-const checkeddata = JSON.parse(localStorage.getItem('checked'));
+
 
 var app = {
-    // Application Constructor
-    initialize: function () {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+  // Application Constructor
+  initialize: function () {
+    document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    document.addEventListener('resume', this.onResume.bind(this), false);
 
-        data.forEach(item => {
-            console.log('items', item);
-            if (item != "")
-                app.createListElement(item);
-        })
+    // Add add button click listener
 
-        checkeddata.forEach(item => {
-            console.log('checked', item);
-            if (item != "")
-                app.createListCheckedElement(item);
-        })
+    /*list.insertAdjacentHTML('beforeend', `
+    <li class="todo-item" data-key="${data.id}">
+      <input id="${data.id}" type="checkbox"/>
+      <label for="${data.id}" class="tick js-tick"></label>
+      <span>${data.text}</span>
+      <button class="delete-todo js-delete-todo">
+        <svg><use href="#delete-icon"></use></svg>
+      </button>
+    </li>
+  `);*/
 
-        // Create a "close" button and append it to each list item
-        var myNodelist = document.getElementsByTagName("LI");
-        var i;
-        for (i = 0; i < myNodelist.length; i++) {
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            myNodelist[i].appendChild(span);
-        }
+    let THIS = this;
+    addButton.addEventListener('click', function () {
+      event.preventDefault();
+      const input = document.querySelector('.js-todo-input');
+      const text = input.value.trim();
+      if (text !== '') {
+        THIS.addTodo(text);
+        input.value = '';
+        input.focus();
+      }
+    }, false);
 
-        // Click on a close button to hide the current list item
-        var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            const n = i;
-            close[i].onclick = function () {
-                var div = this.parentElement;
-                div.style.display = "none";
-                itemsArray.splice(n, 1);
-                localStorage.setItem('items', JSON.stringify(itemsArray));
-            }
-        }
-
-        // Add a "checked" symbol when clicking on a list item
-        var list = document.querySelector('ul');
-        list.addEventListener('click', function (ev) {
-            if (ev.target.tagName === 'LI') {
-                ev.target.classList.toggle('checked');
-            }
-        }, false);
-
-        // Add add button click listener
-        $("#addBtn").click(this.newElementEvent);
-    },
+    //add event listener on checked toggle
+    list.addEventListener('click', event => {
+      if (event.target.classList.contains('js-tick')) {
+        const itemKey = event.target.parentElement.dataset.key;
+        THIS.toggleDone();
+      }
+      if (event.target.classList.contains('js-delete-todo')) {
+        const itemKey = event.target.parentElement.dataset.key;
+        THIS.deleteTodo(itemKey);
+      }
+    });
+  },
 
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function () {
-        this.receivedEvent('deviceready');
-    },
+  addTodo: function (text) {
+    const todo = {
+      text,
+      checked: false,
+      id: Date.now(),
+    };
 
-    // Update DOM on a Received Event
-    newElementEvent: function (e) {
+    todoItems.push(todo);
+    //localStorage.setItem('items', JSON.stringify(todoItems));
 
-
-        e.preventDefault();
-
-
-        var close = document.getElementsByClassName("close");
-        var n = close.length;
-
-
-        var li = document.createElement("li");
-        var inputValue = document.getElementById("myInput").value;
-        var t = document.createTextNode(inputValue);
-        li.appendChild(t);
-
-        if (inputValue === '') {
-            alert("You must write something!");
-        } else {
-            itemsArray.push(inputValue);
-            localStorage.setItem('items', JSON.stringify(itemsArray));
-            document.getElementById("myUL").appendChild(li);
-        }
-        document.getElementById("myInput").value = "";
-
-        li.addEventListener('click', function () {
-            li.classList.toggle('done');
-
-            //get item's index
-            const node = this.value;
-
-            //get item's value
-            value = JSON.parse(localStorage.getItem('items', node));
-
-            //remove item from localstorage
-            itemsArray.splice(node, 1);
-            localStorage.setItem('items', JSON.stringify(itemsArray));
-
-            //push value to checked storage
-            checkedArray.push(value);
-            localStorage.setItem('checked', JSON.stringify(checkedArray));
-
-        })
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
+    const list = document.querySelector('.js-todo-list');
+    list.insertAdjacentHTML('beforeend', `
+    <li class="todo-item" data-key="${todo.id}">
+      <input id="${todo.id}" type="checkbox"/>
+      <label for="${todo.id}" class="tick js-tick"></label>
+      <span>${todo.text}</span>
+      <button class="delete-todo js-delete-todo">
+        <svg><use href="#delete-icon"></use></svg>
+      </button>
+    </li>
+    `);
 
 
-        span.addEventListener('click', function () {
-            var div = this.parentElement;
-            div.style.display = "none";
 
+  },
+  reason: function(){},
+  successCallback: function(){},
+  errorCallback: function(){},
 
-            itemsArray.splice(n, 1);
-            localStorage.setItem('items', JSON.stringify(itemsArray));
-        })
+  onResume: function() {
+    // Handle the resume event
+    CID.checkAuth(reason, successCallback, errorCallback);
+    setTimeout(function() {
+      // TODO: do your thing!
+    message = "Let's get our tasks done!";
+    navigator.notification.confirm(message, ["Welcome Back!"], ["Let's Go"]);
 
-        span.appendChild(txt);
-        li.appendChild(span);
+  }, 0);
+},
 
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
+  toggleDone: function (key) {
+    const index = todoItems.findIndex(item => item.id === Number(key));
+    todoItems[index].checked = !todoItems[index].checked;
 
-    },
-
-    createListElement: text => {
-        const li = document.createElement('li');
-        li.textContent = text;
-
-        li.classList.add("myUL");
-        ul.appendChild(li);
-
-
-        li.addEventListener('click', function () {
-            li.classList.toggle('done');
-
-            //get item's index
-            const node = this.value;
-
-            //get item's value
-            value = JSON.parse(localStorage.getItem('items', node));
-
-            //remove item from localstorage
-            itemsArray.splice(node, 1);
-            localStorage.setItem('items', JSON.stringify(itemsArray));
-
-            //push value to checked storage
-            checkedArray.push(value);
-            localStorage.setItem('checked', JSON.stringify(checkedArray));
-        });
-    },
-
-    createListCheckedElement: text => {
-        const li = document.createElement('li');
-        li.textContent = text;
-
-        li.classList.add("myCheckedUL");
-        checkedul.appendChild(li);
-
-        li.classList.toggle('checked');
-    },
-
-    // Update DOM on a Received Event
-    receivedEvent: function (id) {
-        console.log('Received Event: ');
+    const item = document.querySelector(`[data-key='${key}']`);
+    if (todoItems[index].checked) {
+      item.classList.add('done');
+    } else {
+      item.classList.remove('done');
     }
+  },
+
+  deleteTodo: function (key) {
+    todoItems = todoItems.filter(item => item.id !== Number(key));
+  const item = document.querySelector(`[data-key='${key}']`);
+  item.remove();
+
+  // select the list element and trim all whitespace once there are no todo items left
+  const list = document.querySelector('.js-todo-list');
+  if (todoItems.length === 0) list.innerHTML = '';
+  },
+  // deviceready Event Handler
+  //
+  // Bind any cordova events here. Common events are:
+  // 'pause', 'resume', etc.
+  onDeviceReady: function () {
+    this.receivedEvent('deviceready');
+  },
+
+  // Update DOM on a Received Event
+
+
+
+  // Update DOM on a Received Event
+  receivedEvent: function (id) {
+    console.log('Received Event: ');
+  }
 
 };
 

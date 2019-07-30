@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -14,6 +13,11 @@
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
+		74AB3551C7BB4562ABB038DA /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C9C064E3EB44BA9D317717 /* CDVNotification.m */; };
+		42626B707116485F9C997B98 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 980768797E084DE894C8D4AC /* CDVNotification.bundle */; };
+		E12BC43A5F874BFDB18D539E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF8399118CF40CA8B0CE3A7 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6C7A8AF421CC4BF3A99D9B27 /* CID.m in Sources */ = {isa = PBXBuildFile; fileRef = 38095165F5BD41D9A0BC4422 /* CID.m */; };
+		71851B6B95B543688A023A3D /* Fingerprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203D6101483741509F66EFA7 /* Fingerprint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,14 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = HelloWorld/config.xml; sourceTree = "<group>"; };
+		82C9C064E3EB44BA9D317717 /* CDVNotification.m */ = {isa = PBXFileReference; name = "CDVNotification.m"; path = "cordova-plugin-dialogs/CDVNotification.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		13B37E5A5F8D41D0B01817D6 /* CDVNotification.h */ = {isa = PBXFileReference; name = "CDVNotification.h"; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		980768797E084DE894C8D4AC /* CDVNotification.bundle */ = {isa = PBXFileReference; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
+		1AF8399118CF40CA8B0CE3A7 /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		38095165F5BD41D9A0BC4422 /* CID.m */ = {isa = PBXFileReference; name = "CID.m"; path = "cordova-plugin-ios-faceid/CID.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		C6A0A6CE10754F6BA7FFFF58 /* CID.h */ = {isa = PBXFileReference; name = "CID.h"; path = "cordova-plugin-ios-faceid/CID.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		203D6101483741509F66EFA7 /* Fingerprint.swift */ = {isa = PBXFileReference; name = "Fingerprint.swift"; path = "cordova-plugin-fingerprint-aio/Fingerprint.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		B2D8D8C3B6754D5FA51BAE59 /* Bridging-Header.h */ = {isa = PBXFileReference; name = "Bridging-Header.h"; path = "cordova-plugin-fingerprint-aio/Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
+				E12BC43A5F874BFDB18D539E /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +144,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* HelloWorld-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				980768797E084DE894C8D4AC /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = HelloWorld/Resources;
@@ -139,6 +153,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AF8399118CF40CA8B0CE3A7 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,6 +180,12 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				82C9C064E3EB44BA9D317717 /* CDVNotification.m */,
+				13B37E5A5F8D41D0B01817D6 /* CDVNotification.h */,
+				38095165F5BD41D9A0BC4422 /* CID.m */,
+				C6A0A6CE10754F6BA7FFFF58 /* CID.h */,
+				203D6101483741509F66EFA7 /* Fingerprint.swift */,
+				B2D8D8C3B6754D5FA51BAE59 /* Bridging-Header.h */,
 			);
 			name = Plugins;
 			path = HelloWorld/Plugins;
@@ -263,6 +284,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				42626B707116485F9C997B98 /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +316,9 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				74AB3551C7BB4562ABB038DA /* CDVNotification.m in Sources */,
+				6C7A8AF421CC4BF3A99D9B27 /* CID.m in Sources */,
+				71851B6B95B543688A023A3D /* Fingerprint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +356,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.hello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -355,6 +384,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.hello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -397,6 +429,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.hello;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -437,6 +473,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.hello;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

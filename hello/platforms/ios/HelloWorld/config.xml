@@ -19,6 +19,15 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
+    <feature name="Fingerprint">
+        <param name="ios-package" value="Fingerprint" />
+    </feature>
+    <feature name="CID">
+        <param name="ios-package" value="CID" />
+    </feature>
     <name>HelloWorld</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -44,9 +53,9 @@
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="SuppressesLongPressGesture" value="false" />
-    <preference name="Suppresses3DTouchGesture" value="false" />
     <preference name="GapBetweenPages" value="0" />
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
+    <preference name="Suppresses3DTouchGesture" value="false" />
 </widget>

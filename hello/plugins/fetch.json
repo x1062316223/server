@@ -6,5 +6,37 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-dialogs": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-dialogs"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-ios-faceid": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ios-faceid"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-fingerprint-aio": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fingerprint-aio@rc"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-add-swift-support": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-add-swift-support@^2.0.2"
+    },
+    "is_top_level": false,
+    "variables": {}
   }
 }

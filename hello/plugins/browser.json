@@ -9,6 +9,15 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-ios-faceid": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-fingerprint-aio": {
+      "PACKAGE_NAME": "com.example.hello"
     }
   },
   "dependent_plugins": {}
