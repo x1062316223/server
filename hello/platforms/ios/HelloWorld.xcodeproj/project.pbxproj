@@ -18,6 +18,7 @@
 		E12BC43A5F874BFDB18D539E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF8399118CF40CA8B0CE3A7 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6C7A8AF421CC4BF3A99D9B27 /* CID.m in Sources */ = {isa = PBXBuildFile; fileRef = 38095165F5BD41D9A0BC4422 /* CID.m */; };
 		71851B6B95B543688A023A3D /* Fingerprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203D6101483741509F66EFA7 /* Fingerprint.swift */; };
+		E0CE8980E5C747A28569E0A9 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AB301E1EB94147B721208E /* CDVDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		C6A0A6CE10754F6BA7FFFF58 /* CID.h */ = {isa = PBXFileReference; name = "CID.h"; path = "cordova-plugin-ios-faceid/CID.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		203D6101483741509F66EFA7 /* Fingerprint.swift */ = {isa = PBXFileReference; name = "Fingerprint.swift"; path = "cordova-plugin-fingerprint-aio/Fingerprint.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 		B2D8D8C3B6754D5FA51BAE59 /* Bridging-Header.h */ = {isa = PBXFileReference; name = "Bridging-Header.h"; path = "cordova-plugin-fingerprint-aio/Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		E8AB301E1EB94147B721208E /* CDVDevice.m */ = {isa = PBXFileReference; name = "CDVDevice.m"; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		2C9883B3150E4DB59BC6B938 /* CDVDevice.h */ = {isa = PBXFileReference; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,8 @@
 				C6A0A6CE10754F6BA7FFFF58 /* CID.h */,
 				203D6101483741509F66EFA7 /* Fingerprint.swift */,
 				B2D8D8C3B6754D5FA51BAE59 /* Bridging-Header.h */,
+				E8AB301E1EB94147B721208E /* CDVDevice.m */,
+				2C9883B3150E4DB59BC6B938 /* CDVDevice.h */,
 			);
 			name = Plugins;
 			path = HelloWorld/Plugins;
@@ -319,6 +324,7 @@
 				74AB3551C7BB4562ABB038DA /* CDVNotification.m in Sources */,
 				6C7A8AF421CC4BF3A99D9B27 /* CID.m in Sources */,
 				71851B6B95B543688A023A3D /* Fingerprint.swift in Sources */,
+				E0CE8980E5C747A28569E0A9 /* CDVDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

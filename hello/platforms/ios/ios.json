@@ -15,6 +15,10 @@
             {
               "xml": "<feature name=\"Fingerprint\"><param name=\"ios-package\" value=\"Fingerprint\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+              "count": 1
             }
           ],
           "/widget": [
@@ -57,6 +61,9 @@
     "cordova-plugin-fingerprint-aio": {
       "FACEID_USAGE_DESCRIPTION": " ",
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
   "dependent_plugins": {},
@@ -84,6 +91,14 @@
       "clobbers": [
         "Fingerprint"
       ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -91,6 +106,7 @@
     "cordova-plugin-dialogs": "2.0.2",
     "cordova-plugin-ios-faceid": "1.0.2",
     "cordova-plugin-add-swift-support": "2.0.2",
-    "cordova-plugin-fingerprint-aio": "1.7.0"
+    "cordova-plugin-fingerprint-aio": "1.7.0",
+    "cordova-plugin-device": "2.0.3"
   }
 }

@@ -25,6 +25,9 @@
     <feature name="Fingerprint">
         <param name="ios-package" value="Fingerprint" />
     </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
     <feature name="CID">
         <param name="ios-package" value="CID" />
     </feature>
@@ -58,4 +61,5 @@
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="Suppresses3DTouchGesture" value="false" />
+    <preference name="UseSwiftLanguageVersion" value="3.2" />
 </widget>

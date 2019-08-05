@@ -23,6 +23,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <preference name="Suppresses3DTouchGesture" value="false" />
+        <preference name="UseSwiftLanguageVersion" value="3.2" /> 
 
     </platform>
 </widget>

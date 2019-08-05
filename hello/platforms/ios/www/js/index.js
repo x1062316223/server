@@ -8,13 +8,52 @@ localStorage.setItem('items', JSON.stringify(todoItems))
 const data = JSON.parse(localStorage.getItem('items'));
 
 
+
+
+
 var app = {
   // Application Constructor
   initialize: function () {
+
+    var devicePlatform = device.platform;
+
+    if (devicePlatform == "Android") {
+      Fingerprint.show({
+        clientId: "Fingerprint-Demo",
+        clientSecret: "password" //Only necessary for Android
+
+      }, successCallback, errorCallback);
+
+      function successCallback() {
+        alert("Authentication successfull");
+      }
+
+      function errorCallback(err) {
+        alert("Authentication invalid " + err);
+      }
+      this.receivedEvent('deviceready');
+    }
+    else if (devicePlatform == "iOS") {
+      Fingerprint.show({
+      }, successCallback, errorCallback);
+
+      function successCallback() {
+      }
+
+      function errorCallback(err) {
+      }
+      this.receivedEvent('deviceready');
+    }
+    //add onDeviceready event 
     document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+
+    //add Resume event
     document.addEventListener('resume', this.onResume.bind(this), false);
 
-    // Add add button click listener
+    //check fingerprint if it is available
+    Fingerprint.isAvailable(isAvailableSuccess, isAvailableError);
+
+
 
     /*list.insertAdjacentHTML('beforeend', `
     <li class="todo-item" data-key="${data.id}">
@@ -28,18 +67,19 @@ var app = {
   `);*/
 
     let THIS = this;
+    //add input event listener
     addButton.addEventListener('click', function () {
       event.preventDefault();
       const input = document.querySelector('.js-todo-input');
       const text = input.value.trim();
       if (text !== '') {
-        THIS.addTodo(text);
+        THIS.text.addTodo(text);
         input.value = '';
         input.focus();
       }
     }, false);
 
-    //add event listener on checked toggle
+    //add event listener on checked and delete
     list.addEventListener('click', event => {
       if (event.target.classList.contains('js-tick')) {
         const itemKey = event.target.parentElement.dataset.key;
@@ -52,7 +92,21 @@ var app = {
     });
   },
 
+  //function if fingerprint is available
+  isAvailableSuccess: function (result) {
+    /*
+    result depends on device and os. 
+    iPhone X will return 'face' other Android or iOS devices will return 'finger'  
+    */
+    alert("Fingerprint available");
+  },
 
+  //if fingerprint has error
+  isAvailableError: function () {
+    alert("No device detected!");
+  },
+
+  //add text, checked status and id to storage
   addTodo: function (text) {
     const todo = {
       text,
@@ -61,7 +115,7 @@ var app = {
     };
 
     todoItems.push(todo);
-    //localStorage.setItem('items', JSON.stringify(todoItems));
+    localStorage.setItem('items', JSON.stringify(todoItems));
 
     const list = document.querySelector('.js-todo-list');
     list.insertAdjacentHTML('beforeend', `
@@ -78,20 +132,15 @@ var app = {
 
 
   },
-  reason: function(){},
-  successCallback: function(){},
-  errorCallback: function(){},
-
-  onResume: function() {
+  onResume: function () {
     // Handle the resume event
-    CID.checkAuth(reason, successCallback, errorCallback);
-    setTimeout(function() {
+    setTimeout(function () {
       // TODO: do your thing!
-    message = "Let's get our tasks done!";
-    navigator.notification.confirm(message, ["Welcome Back!"], ["Let's Go"]);
+      message = "Let's get our tasks done!";
+      navigator.notification.confirm(message, ["Welcome Back!"], ["Let's Go"]);
 
-  }, 0);
-},
+    }, 0);
+  },
 
   toggleDone: function (key) {
     const index = todoItems.findIndex(item => item.id === Number(key));
@@ -107,19 +156,19 @@ var app = {
 
   deleteTodo: function (key) {
     todoItems = todoItems.filter(item => item.id !== Number(key));
-  const item = document.querySelector(`[data-key='${key}']`);
-  item.remove();
+    const item = document.querySelector(`[data-key='${key}']`);
+    item.remove();
 
-  // select the list element and trim all whitespace once there are no todo items left
-  const list = document.querySelector('.js-todo-list');
-  if (todoItems.length === 0) list.innerHTML = '';
+    // select the list element and trim all whitespace once there are no todo items left
+    const list = document.querySelector('.js-todo-list');
+    if (todoItems.length === 0) list.innerHTML = '';
   },
   // deviceready Event Handler
   //
   // Bind any cordova events here. Common events are:
   // 'pause', 'resume', etc.
   onDeviceReady: function () {
-    this.receivedEvent('deviceready');
+    
   },
 
   // Update DOM on a Received Event

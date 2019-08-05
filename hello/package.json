@@ -16,6 +16,7 @@
     "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^5.0.0",
+    "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-fingerprint-aio": "^1.7.0",
     "cordova-plugin-ios-faceid": "^1.0.2",
@@ -29,7 +30,8 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-dialogs": {},
       "cordova-plugin-ios-faceid": {},
-      "cordova-plugin-fingerprint-aio": {}
+      "cordova-plugin-fingerprint-aio": {},
+      "cordova-plugin-device": {}
     },
     "platforms": [
       "ios",
