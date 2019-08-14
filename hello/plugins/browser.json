@@ -13,13 +13,16 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.example.hello"
     },
-    "cordova-plugin-ios-faceid": {
+    "cordova-plugin-media": {
       "PACKAGE_NAME": "com.example.hello"
     },
-    "cordova-plugin-fingerprint-aio": {
+    "cordova-plugin-add-swift-support": {
       "PACKAGE_NAME": "com.example.hello"
     },
-    "cordova-plugin-device": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.example.hello"
     }
   },

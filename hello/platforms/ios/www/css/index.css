@@ -80,7 +80,8 @@ input[type="checkbox"] {
 }
 
 .tick::before {
-  content: '✓';
+  content: "\f00c";
+  font-family: FontAwesome;
   font-size: 20px;
   display: none;
 }
@@ -97,6 +98,8 @@ input[type="checkbox"] {
 }
 
 .delete-todo svg {
+  content:"\f1f8";
+  font-family: FontAwesome;
   width: 30px;
   height: 30px;
   pointer-events: none;
@@ -115,13 +118,6 @@ input[type="text"] {
   border: 3px solid #333;
 }
 
-button{
-width: 30%;
-border-radius: 4px;
-border: 3px solid #333;
-padding: 10px;
-background-color:seashell;
-}
 .empty-state {
   flex-direction: column;
   align-items: center;
@@ -135,4 +131,12 @@ background-color:seashell;
 
 .empty-state__title, .empty-state__description {
   margin-bottom: 20px;
+}
+
+.todo-list:empty {
+  display: none;
+}
+
+.todo-list:empty + .empty-state {
+  display: flex;
 }

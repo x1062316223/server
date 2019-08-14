@@ -22,15 +22,18 @@
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
-    <feature name="Fingerprint">
-        <param name="ios-package" value="Fingerprint" />
+    <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+        <param name="onload" value="true" />
     </feature>
-    <feature name="Device">
-        <param name="ios-package" value="CDVDevice" />
+    <feature name="Media">
+        <param name="ios-package" value="CDVSound" />
     </feature>
-    <feature name="CID">
-        <param name="ios-package" value="CID" />
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
     </feature>
+    <splash src="www/img/logo.png" />
     <name>HelloWorld</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -60,6 +63,8 @@
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
+    <preference name="KeepAVAudioSessionAlwaysActive" value="NO" />
+    <preference name="SplashScreenBackgroundColor" value="#fcdb03" />
     <preference name="Suppresses3DTouchGesture" value="false" />
-    <preference name="UseSwiftLanguageVersion" value="3.2" />
+    <preference name="UseSwiftLanguageVersion" value="4.0" />
 </widget>

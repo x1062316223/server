@@ -13,13 +13,13 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
-    "cordova-ios": "^5.0.0",
-    "cordova-plugin-device": "^2.0.3",
+    "cordova-ios": "^5.0.1",
     "cordova-plugin-dialogs": "^2.0.2",
-    "cordova-plugin-fingerprint-aio": "^1.7.0",
-    "cordova-plugin-ios-faceid": "^1.0.2",
+    "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-media": "^5.0.3",
+    "cordova-plugin-splashscreen": "^5.0.3",
+    "moleculer": "^0.13.9",
     "swipe-to-delete": "^0.1.6"
   },
   "devDependencies": {
@@ -29,14 +29,16 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-dialogs": {},
-      "cordova-plugin-ios-faceid": {},
-      "cordova-plugin-fingerprint-aio": {},
-      "cordova-plugin-device": {}
+      "cordova-plugin-media": {
+        "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO"
+      },
+      "cordova-plugin-add-swift-support": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-splashscreen": {}
     },
     "platforms": [
-      "ios",
-      "android",
-      "browser"
+      "browser",
+      "ios"
     ]
   }
 }

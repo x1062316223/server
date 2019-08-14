@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-whitelist","cordova-plugin-dialogs","cordova-plugin-ios-faceid","cordova-plugin-fingerprint-aio","cordova-plugin-add-swift-support","cordova-plugin-device"]}
+{"plugins":["cordova-plugin-whitelist","cordova-plugin-dialogs","cordova-plugin-add-swift-support","cordova-plugin-media","cordova-plugin-file","cordova-plugin-splashscreen"]}

@@ -31,27 +31,27 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/index.css">
             <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
             <link rel="java">
            
-        <title>Hello World</title>
+        <title>To Do List</title>
     </head>
     <main>
         <div class="container">
           <h1 class="app-title">todos</h1>
           <ul class="todo-list js-todo-list"></ul>
-      
+      <!-- shown when no tasks in record-->
           <div class="empty-state">
             <svg class="checklist-icon"><use href="#checklist-icon"></use></svg>
             <h2 class="empty-state__title">Add your first todo</h2>
             <p class="empty-state__description">What do you want to get done today?</p>
           </div>
 
-          
-          <form class="js-form">
+          <!--user input for press enter to submit-->
+          <form class="js-form" >
             <input autofocus type="text" aria-label="Enter a new todo item" placeholder="E.g. Build a web app" class="js-todo-input">
-            <button type ="submit" class="button" id="submit">ADD</button>
         </form>
         </div>
       </main>
